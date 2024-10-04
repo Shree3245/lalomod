@@ -56,13 +56,13 @@ const Login = () => {
 				}
 			);
 
-			const { jwt, user_id } = response.data;
-			console.log("Login successful:", jwt, user_id);
-			login(jwt.access_token, user_id);
+			const { user_id } = response.data;
+			console.log("Login successful:", user_id);
+			login(user_id);
 			navigate("/dashboard");
 		} catch (error) {
 			if (email === "admin" && password === "admin") {
-				login("modJWT", "010101001");
+				login("010101001");
 				navigate("/dashboard");
 			} else {
 				console.error("Login failed:", error);
